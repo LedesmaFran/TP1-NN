@@ -10,7 +10,7 @@ def evaluate_data(x, classes_stats, class_vector,balance_class):
     "calculo por bayes y devuelvo vector de probabilidades a posteriori"
     prob_vector = []
     for class_name in class_vector:
-        p = multivariate_normal.cdf(x, mean=classes_stats[class_name][0], cov=classes_stats[class_name][1],allow_singular=True);
+        p = multivariate_normal.pdf(x, mean=classes_stats[class_name][0], cov=classes_stats[class_name][1],allow_singular=True);
         #print('P(x|y='+class_name+').p(y='+class_name+')=',round(p*balance_class[class_name],3))
         #p(y=k|x) = p(x|y=k).p(y=k)
         prob_vector.append(p*balance_class[class_name])
